@@ -1,0 +1,97 @@
+{{> Partials/Header }}
+
+    <p id="post-title">{{ payload.title }}</p>
+    <p id="post-content">{{ payload.content }}</p>
+
+    {{#if payload.deletedAt}}
+        <p>This post is read only.</p>
+    {{else}}
+		{{#if payload.isUsersPost}}
+            <!-- Edit URL -->
+            {{#if payload.canEdit}}
+                <a href={{path 'post/{id}/edit' payload.id}}>Edit Post!</a>
+            {{else}}
+                <p>URL posts cannot be edited!</p>
+            {{/if}}
+
+            <!-- Delete form -->
+			<form action="{{ path 'post/{id}' payload.id}}" method="POST" id="delete-post-form">
+				<input type="hidden" name="method" value="DELETE">
+				<button type="submit">Delete Post</button>
+			</form>
+		{{/if}}
+
+        <div class='post-votes' post-id={{ payload.id }} value={{ id }}>{{ payload.votes }}</div>
+
+        {{#if payload.user_id}}
+            <!-- Bookmarking section -->
+            <div id="post-bookmark">
+                {{#if payload.is_bookmarked}}
+                    <button id="post-bookmark-button" value={{ payload.id }}>Unbookmark Post</button>
+                {{else}}
+                    <button id="post-bookmark-button" value={{ payload.id }}>Bookmark Post</button>
+                {{/if}}
+                <a href={{ path 'user/{id}' payload.user_id }}>Go to user</a>
+            </div>
+
+            <!-- Voting section -->
+            <button class='post-upvote-button' post-id={{ payload.id }} value={{ state}}>Upvote</button>
+            <button class='post-downvote-button' post-id={{ payload.id }} value={{ state }}>Downvote</button>
+        {{/if}}
+
+        {{#if payload.canComment}}
+            <!-- Comment form -->
+			<form action="{{ path 'comment/{id}' payload.id }}" method="POST" id="new-comment-form">
+				<input type="text" name="postId" value='{{ payload.id }}'>
+				<input type="text" name="userId" value ='{{ payload.user.id }}'>
+				<textarea name="content"></textarea>
+				<button type="submit">Create comment</button>
+			</form>
+        {{/if}}
+    {{/if}}
+
+    <!-- Comments display -->
+    {{#if payload.comments.length}}
+        <section id="comments">
+            {{#each payload.comments}}
+                <div class="comment" comment-id='{{ id }}'>
+                {{#if deletedAt}}
+                    <p>Comment was deleted on {{ deletedAt }}</p>
+                {{else}}
+                    <p>{{ content }}</p>
+                    <p>{{ createdAt }}</p>
+                    <p>{{ username }}</p>
+
+                    <form action="{{ path 'comment/{id}' id }}" method="POST" class="delete-comment-form">
+                        <input type="hidden" name="method" value="DELETE">
+                        <button type="submit">Delete comment</button>
+                    </form>
+
+                    {{#if isUsersComment}} 
+                        <a href={{ path 'comment/{id}/edit' id}}>Edit Comment</a>
+                    {{/if}}
+
+                    {{#if is_bookmarked}}
+                        <button class="comment-bookmark-button" value={{ id }}>Unbookmark Comment</button>
+                    {{else}}
+                        <button class="comment-bookmark-button" value={{ id }}>Bookmark Comment</button>
+                    {{/if}}
+
+                    <!-- Voting section -->
+					<div class='comment-votes' comment-id={{ id }} value={{ id }}>{{ votes }}</div>
+
+                    {{#if isLoggedIn}}
+                        <button class='comment-upvote-button' comment-id={{ id }} value="{{ state }}">Upvote</button>
+                        <button class='comment-downvote-button' comment-id={{ id }} value="{{ state }}">Downvote</button>
+                    {{/if}}
+
+                    <a href={{ path 'comment/{id}' id}}>View comment</a>
+                {{/if}}
+                </div>
+            {{/each}}
+        </section>
+    {{else}}
+        <p>No comments to display!</p>
+    {{/if}}
+
+{{> Partials/Footer }}

@@ -1,0 +1,136 @@
+[2021-4-28 14:29:47] 📨 >> GET / ""
+[2021-4-28 14:29:47] 💌 << 400 BAD_REQUEST
+[2021-4-28 14:29:49] 📨 >> GET / ""
+[2021-4-28 14:29:49] 💌 << 400 BAD_REQUEST
+[2021-4-28 14:30:15] 📨 >> GET / ""
+[2021-4-28 14:30:15] 💌 << 400 BAD_REQUEST
+[2021-4-28 14:32:24] 📨 >> GET / ""
+[2021-4-28 14:32:24] 💌 << 200 OK
+[2021-4-28 14:32:24] 📨 >> GET /user/1 ""
+[2021-4-28 14:32:24] UserException: Cannot retrieve User: User does not exist with ID 1.
+    at UserController.show (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/controllers/UserController.js:95:13)
+    at processTicksAndRejections (node:internal/process/task_queues:93:5)
+    at async Router.dispatch (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/router/Router.js:79:13)
+    at async App.sendResponse (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/App.js:43:20)
+    at async Server.<anonymous> (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/server.js:91:2)
+[2021-4-28 14:32:24] 💌 << 400 BAD_REQUEST
+[2021-4-28 14:32:29] 📨 >> GET / ""
+[2021-4-28 14:32:29] 💌 << 200 OK
+[2021-4-28 14:32:29] 📨 >> GET /user/1 ""
+[2021-4-28 14:32:29] UserException: Cannot retrieve User: User does not exist with ID 1.
+    at UserController.show (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/controllers/UserController.js:95:13)
+    at processTicksAndRejections (node:internal/process/task_queues:93:5)
+    at async Router.dispatch (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/router/Router.js:79:13)
+    at async App.sendResponse (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/App.js:43:20)
+    at async Server.<anonymous> (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/server.js:91:2)
+[2021-4-28 14:32:29] 💌 << 400 BAD_REQUEST
+[2021-4-28 14:32:37] 📨 >> GET / ""
+[2021-4-28 14:32:37] 💌 << 200 OK
+[2021-4-28 14:32:37] 📨 >> GET /user/1 ""
+[2021-4-28 14:32:37] UserException: Cannot retrieve User: User does not exist with ID 1.
+    at UserController.show (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/controllers/UserController.js:95:13)
+    at processTicksAndRejections (node:internal/process/task_queues:93:5)
+    at async Router.dispatch (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/router/Router.js:79:13)
+    at async App.sendResponse (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/App.js:43:20)
+    at async Server.<anonymous> (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/server.js:91:2)
+[2021-4-28 14:32:37] 💌 << 400 BAD_REQUEST
+[2021-4-28 14:32:40] 📨 >> GET /user/new ""
+[2021-4-28 14:32:40] 💌 << 200 OK
+[2021-4-28 14:32:40] 📨 >> GET /user/1 ""
+[2021-4-28 14:32:40] UserException: Cannot retrieve User: User does not exist with ID 1.
+    at UserController.show (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/controllers/UserController.js:95:13)
+    at processTicksAndRejections (node:internal/process/task_queues:93:5)
+    at async Router.dispatch (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/router/Router.js:79:13)
+    at async App.sendResponse (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/App.js:43:20)
+    at async Server.<anonymous> (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/server.js:91:2)
+[2021-4-28 14:32:40] 💌 << 400 BAD_REQUEST
+[2021-4-28 14:32:42] 📨 >> GET / ""
+[2021-4-28 14:32:42] 💌 << 200 OK
+[2021-4-28 14:32:42] 📨 >> GET /user/1 ""
+[2021-4-28 14:32:42] UserException: Cannot retrieve User: User does not exist with ID 1.
+    at UserController.show (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/controllers/UserController.js:95:13)
+    at processTicksAndRejections (node:internal/process/task_queues:93:5)
+    at async Router.dispatch (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/router/Router.js:79:13)
+    at async App.sendResponse (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/App.js:43:20)
+    at async Server.<anonymous> (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/server.js:91:2)
+[2021-4-28 14:32:42] 💌 << 400 BAD_REQUEST
+[2021-4-28 14:32:44] 📨 >> GET /user/new ""
+[2021-4-28 14:32:44] 💌 << 200 OK
+[2021-4-28 14:32:44] 📨 >> GET /user/1 ""
+[2021-4-28 14:32:44] UserException: Cannot retrieve User: User does not exist with ID 1.
+    at UserController.show (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/controllers/UserController.js:95:13)
+    at processTicksAndRejections (node:internal/process/task_queues:93:5)
+    at async Router.dispatch (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/router/Router.js:79:13)
+    at async App.sendResponse (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/App.js:43:20)
+    at async Server.<anonymous> (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/server.js:91:2)
+[2021-4-28 14:32:44] 💌 << 400 BAD_REQUEST
+[2021-4-28 14:32:45] 📨 >> GET / ""
+[2021-4-28 14:32:45] 💌 << 200 OK
+[2021-4-28 14:32:45] 📨 >> GET /user/1 ""
+[2021-4-28 14:32:45] UserException: Cannot retrieve User: User does not exist with ID 1.
+    at UserController.show (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/controllers/UserController.js:95:13)
+    at processTicksAndRejections (node:internal/process/task_queues:93:5)
+    at async Router.dispatch (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/router/Router.js:79:13)
+    at async App.sendResponse (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/App.js:43:20)
+    at async Server.<anonymous> (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/server.js:91:2)
+[2021-4-28 14:32:45] 💌 << 400 BAD_REQUEST
+[2021-4-28 14:32:46] 📨 >> GET /auth/login ""
+[2021-4-28 14:32:46] 💌 << 200 OK
+[2021-4-28 14:32:46] 📨 >> GET /user/1 ""
+[2021-4-28 14:32:46] UserException: Cannot retrieve User: User does not exist with ID 1.
+    at UserController.show (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/controllers/UserController.js:95:13)
+    at processTicksAndRejections (node:internal/process/task_queues:93:5)
+    at async Router.dispatch (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/router/Router.js:79:13)
+    at async App.sendResponse (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/App.js:43:20)
+    at async Server.<anonymous> (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/server.js:91:2)
+[2021-4-28 14:32:46] 💌 << 400 BAD_REQUEST
+[2021-4-28 14:32:47] 📨 >> GET / ""
+[2021-4-28 14:32:47] 💌 << 200 OK
+[2021-4-28 14:32:47] 📨 >> GET /user/1 ""
+[2021-4-28 14:32:48] UserException: Cannot retrieve User: User does not exist with ID 1.
+    at UserController.show (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/controllers/UserController.js:95:13)
+    at processTicksAndRejections (node:internal/process/task_queues:93:5)
+    at async Router.dispatch (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/router/Router.js:79:13)
+    at async App.sendResponse (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/App.js:43:20)
+    at async Server.<anonymous> (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/server.js:91:2)
+[2021-4-28 14:32:48] 💌 << 400 BAD_REQUEST
+[2021-4-28 14:32:48] 📨 >> GET /auth/register ""
+[2021-4-28 14:32:48] 💌 << 200 OK
+[2021-4-28 14:32:48] 📨 >> GET /user/1 ""
+[2021-4-28 14:32:48] UserException: Cannot retrieve User: User does not exist with ID 1.
+    at UserController.show (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/controllers/UserController.js:95:13)
+    at processTicksAndRejections (node:internal/process/task_queues:93:5)
+    at async Router.dispatch (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/router/Router.js:79:13)
+    at async App.sendResponse (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/App.js:43:20)
+    at async Server.<anonymous> (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/server.js:91:2)
+[2021-4-28 14:32:48] 💌 << 400 BAD_REQUEST
+[2021-4-28 14:32:49] 📨 >> GET / ""
+[2021-4-28 14:32:49] 💌 << 200 OK
+[2021-4-28 14:32:49] 📨 >> GET /user/1 ""
+[2021-4-28 14:32:49] UserException: Cannot retrieve User: User does not exist with ID 1.
+    at UserController.show (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/controllers/UserController.js:95:13)
+    at processTicksAndRejections (node:internal/process/task_queues:93:5)
+    at async Router.dispatch (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/router/Router.js:79:13)
+    at async App.sendResponse (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/App.js:43:20)
+    at async Server.<anonymous> (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/server.js:91:2)
+[2021-4-28 14:32:49] 💌 << 400 BAD_REQUEST
+[2021-4-28 14:32:50] 📨 >> GET / ""
+[2021-4-28 14:32:50] 💌 << 200 OK
+[2021-4-28 14:32:50] 📨 >> GET /user/1 ""
+[2021-4-28 14:32:50] UserException: Cannot retrieve User: User does not exist with ID 1.
+    at UserController.show (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/controllers/UserController.js:95:13)
+    at processTicksAndRejections (node:internal/process/task_queues:93:5)
+    at async Router.dispatch (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/router/Router.js:79:13)
+    at async App.sendResponse (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/App.js:43:20)
+    at async Server.<anonymous> (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/server.js:91:2)
+[2021-4-28 14:32:50] 💌 << 400 BAD_REQUEST
+[2021-4-28 14:32:51] 📨 >> GET / ""
+[2021-4-28 14:32:51] 💌 << 200 OK
+[2021-4-28 14:32:51] 📨 >> GET /user/1 ""
+[2021-4-28 14:32:51] UserException: Cannot retrieve User: User does not exist with ID 1.
+    at UserController.show (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/controllers/UserController.js:95:13)
+    at processTicksAndRejections (node:internal/process/task_queues:93:5)
+    at async Router.dispatch (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/router/Router.js:79:13)
+    at async App.sendResponse (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/src/App.js:43:20)
+    at async Server.<anonymous> (/Users/liam/JAC CompSci/Web Programming II 420-4W6-AB/Assignments/assignment-5-terror/server.js:91:2)
+[2021-4-28 14:32:51] 💌 << 400 BAD_REQUEST

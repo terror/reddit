@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+
+<head>
+	<meta charset="UTF-8">
+	<title>{{ title }}</title>
+	<link rel="stylesheet" type="text/css" href="{{styles 'paper.min.css'}}">
+	<link rel="stylesheet" type="text/css" href="{{styles 'style.css'}}">
+	<script src={{ scripts 'main.js'}} defer></script>
+</head>
+
+<body>
+	<script>
+		0 // Prevents flash of unstyled content in Firefox.
+	</script>
+	<main class="container paper">
+		<header>
+			<nav class="border split-nav">
+				<div class="nav-brand">
+					<h3><a href="{{ base }}">Reddit</a></h3>
+				</div>
+				<div class="collapsible">
+					<input id="collapsible1" type="checkbox" name="collapsible1">
+					<label for="collapsible1">
+						<div class="bar1"></div>
+						<div class="bar2"></div>
+						<div class="bar3"></div>
+					</label>
+					<div class="collapsible-body">
+						<ul class="inline">
+							<li><a href="{{path 'user/new'}}">Register</a></li>
+							<li><a href="#">Log In</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>

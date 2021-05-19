@@ -1,0 +1,17 @@
+{{> Partials/Header }}
+
+<h1>Login</h1>
+
+<form action="login" method="POST" id="login-form">
+	{{#if payload.email}}
+		<input type="text" name="email" value="{{ payload.email }}">
+		<input type="checkbox" name="remember" checked>
+	{{else}}
+		<input type="text" name="email">
+		<input type="checkbox" name="remember">
+	{{/if}}
+	<input type="text" name="password">
+	<button>Submit</button>
+</form>
+
+{{> Partials/Footer }}

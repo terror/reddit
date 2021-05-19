@@ -1,0 +1,58 @@
+{{> Partials/Header }}
+
+    <p id="category-title">{{ payload.title }}</p>
+    <p id="category-description">{{ payload.description }}</p>
+
+	{{#if payload.isLoggedIn}}
+		{{#unless payload.deletedAt}}
+			<a href={{path 'category/{id}/edit' payload.id}}>Edit</a>
+
+			<!-- Category Form -->
+			<form action="{{ path 'category/{id}' payload.id }}" method="POST" id="delete-category-form">
+				<input type="hidden" name="method" value="DELETE">
+				<button type="submit">Delete</button>
+			</form>
+
+			<!-- Post Form -->
+			<form action="{{ path 'post' }}" method="POST" id="new-post-form">
+				<input type="text" name="userId" value={{ payload.user.id }}>
+				<input type="text" name="categoryId" value='{{ payload.id }}'>
+				<input type="text" name="title">
+				<select name="type">
+					<option value="" selected="selected" hidden="hidden"></option>
+					<option value="Text"></option>
+					<option value="URL"></option>
+				</select>
+				<textarea name="content"></textarea>
+				<button type="submit">Create</button>
+			</form>
+		{{/unless}}
+	{{/if}}
+
+    <!-- Post Table -->
+    {{#if payload.posts.length}}
+        <table id="posts">
+            <tbody>
+                {{#each payload.posts}}
+                    <tr post-id='{{ id }}'>
+                        <td>{{ title }}</td>
+                        <td>{{ username }}</td>
+                        <td>{{ createdAt }}</td>
+                        {{#if deletedAt}} <td>Yes</td> {{else}} <td>No</td> {{/if}}
+                    </tr>
+                    <a href={{ path 'post/{id}' id }}>Show post!</a>
+					<a href={{ path 'user/{id}' userId }}>Show user</a>
+					<div class='post-votes' post-id={{ id }} value={{ id }}>{{ votes }}</div>
+					{{#if userId}}
+						<!-- Voting section -->
+						<button class='post-upvote-button' post-id={{ id }} value="{{ state }}">Upvote</button>
+						<button class='post-downvote-button' post-id={{ id }} value="{{ state }}">Downvote</button>
+					{{/if}}
+                {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <h1>No posts to display!</h1>
+    {{/if}}
+
+{{> Partials/Footer }}

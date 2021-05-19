@@ -1,0 +1,16 @@
+{{> Partials/Header }}
+
+<h1>✏️ Edit Comment</h1>
+
+<p>By
+	{{ payload.user.username }} @
+	{{ payload.createdAt }}
+</p>
+
+<form action="{{ path 'comment/{id}' payload.id }}" method="POST" id="edit-comment-form">
+	<input type="hidden" name="method" value="PUT">
+	<textarea type="text" name="content" cols="60" rows="5">{{ payload.content }}</textarea>
+	<button class="paper-btn btn-primary">✏️ Edit Comment</button>
+</form>
+
+{{> Partials/Footer}}

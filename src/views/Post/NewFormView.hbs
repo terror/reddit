@@ -1,0 +1,12 @@
+<form action="{{ path 'post' }}" method="POST" id="new-post-form">
+	<input type="hidden" name="categoryId" value="{{ payload.id }}">
+	<input type="number" name="userId" placeholder="Enter User ID">
+	<input type="text" name="title" placeholder="Enter Title">
+	<select name="type">
+		<option value=""></option>
+		<option value="Text">Text</option>
+		<option value="URL">URL</option>
+	</select><br>
+	<textarea name="content" cols="60" rows="5"></textarea><br>
+	<button class="paper-btn btn-primary">📝 Create Post</button>
+</form>

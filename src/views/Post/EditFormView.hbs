@@ -1,0 +1,15 @@
+{{> Partials/Header }}
+
+<h1>✏️ Edit Post</h1>
+
+<h2>
+	{{ payload.title }}
+</h2>
+
+<form action="{{ path 'post/{id}' payload.id }}" method="POST" id="edit-post-form">
+	<input type="hidden" name="method" value="PUT">
+	<textarea type="text" name="content" cols="60" rows="5">{{ payload.content }}</textarea>
+	<button class="paper-btn btn-primary">✏️ Edit Post</button>
+</form>
+
+{{> Partials/Footer }}

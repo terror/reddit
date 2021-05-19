@@ -1,0 +1,12 @@
+{{> Partials/Header }}
+
+<h1>Register</h1>
+
+<form action="{{ path 'user' }}" method="POST" id="new-user-form">
+	<input type="text" name="username" placeholder="Enter Username">
+	<input type="email" name="email" placeholder="Enter Email Address">
+	<input type="password" name="password" placeholder="Enter Password">
+	<button class="paper-btn btn-primary">Submit</button>
+</form>
+
+{{> Partials/Footer}}

@@ -1,0 +1,7 @@
+<form action="{{ path 'user/{id}' payload.id }}" method="POST" id="edit-user-form">
+	<input type="hidden" name="method" value="PUT">
+	<input type="text" name="username" placeholder="Enter new username" id="username">
+	<input type="email" name="email" placeholder="Enter new email" id="email">
+	<input type="password" name="password" placeholder="Enter new password" id="password">
+	<button class="paper-btn btn-primary">✏️ Edit User</button>
+</form>

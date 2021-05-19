@@ -1,0 +1,29 @@
+{{> Partials/Header }}
+
+    <div class="comment" comment-id='{{ payload.id }}'>
+        <p>{{ payload.content }}</p>
+        <p>{{ payload.createdAt }}</p>
+        <p>{{ payload.user.username }}</p>
+    </div>
+
+    <!-- Voting section -->
+    <div class='comment-votes' comment-id="{{ payload.id }}" value={{ payload.id }}>{{ payload.votes }}</div>
+
+    {{#if payload.user_id}}
+        <button class='comment-upvote-button' comment-id="{{ payload.id }}" value="{{ payload.state }}">Upvote</button>
+        <button class='comment-downvote-button' comment-id="{{ payload.id }}" value="{{ payload.state }}">Downvote</button>
+    {{/if}}
+
+    <a href={{ path 'user/{id}' payload.user_id}}>Show user</a>
+
+    {{#if payload.replies.length}}
+        {{#each payload.replies}}
+            <div class="comment" comment-id='{{ id }}'>
+                <p>{{ content }}</p>
+                <p>{{ createdAt }}</p>
+                <p>{{ username }}</p>
+            </div>
+        {{/each}}
+    {{/if}}
+
+{{> Partials/Footer }}

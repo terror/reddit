@@ -1,0 +1,45 @@
+{{> Partials/Header }}
+
+<h1>Welcome to Reddit!</h1>
+<p>
+	{{ message }}
+</p>
+
+<nav>
+	<a href={{path 'auth/login'}}>Login</a>
+	<a href={{path 'auth/register'}}>Register</a>
+	{{#if payload.isLoggedIn}}
+		<a href={{path 'auth/logout'}}>Logout</a>
+	{{/if}}
+</nav>
+
+	{{#if payload.isLoggedIn}}
+		<!-- Categories create form -->
+		<form action="{{ path 'category/new' }}" method="POST" id="new-category-form">
+			<input type="text" name="userId">
+			<input type="text" name="title">
+			<input type="text" name="description">
+			<button>Submit</button>
+		</form>
+	{{/if}}
+
+    <!-- Categories table -->
+    {{#if payload.length}}
+        <table id="categories">
+            <tbody>
+            {{#each payload}}
+                <tr category-id='{{ id }}'>
+                    <td>{{ title }}</td>
+                    <td>{{ username }}</td>
+                    <td>{{ createdAt }}</td>
+                    {{#if deletedAt}} <td>Yes</td> {{else}} <td>No</td> {{/if}}
+                </tr>
+                <a href={{ path 'category/{id}' id }}>Show category!</a>
+            {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <h1>No categories to display.</h1>
+    {{/if}}
+
+{{> Partials/Footer }}

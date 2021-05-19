@@ -1,0 +1,30 @@
+<h2>Posts</h2>
+
+{{#unless posts}}
+<p>There are no posts yet! Please make one using the form above.</p>
+{{else}}
+<table id="posts">
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Date Created</th>
+			<th>Written By</th>
+			<th>Deleted</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#each posts}}
+		<tr post-id="{{ id }}">
+			<td><a href="{{ path 'post/{id}' id }}">{{ title }}</a></td>
+			<td>{{ createdAt }}</td>
+			<td>{{ user.username }}</td>
+			{{#if deletedAt}}
+			<td>Yes</td>
+			{{else}}
+			<td>No</td>
+			{{/if}}
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+{{/unless}}

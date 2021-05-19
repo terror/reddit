@@ -1,0 +1,36 @@
+[2021-5-3 6:58:15] 📨 >> GET / ""
+[2021-5-3 6:58:15] 💌 << 200 OK
+[2021-5-3 6:58:18] 📨 >> GET /auth/login ""
+[2021-5-3 6:58:18] 💌 << 200 OK
+[2021-5-3 6:58:19] 📨 >> GET /user/new ""
+[2021-5-3 6:58:19] UserException: Cannot create User: Missing username.
+    at Function.create (/Users/liam/Github/reddit/src/models/User.js:45:13)
+    at UserController.new (/Users/liam/Github/reddit/src/controllers/UserController.js:59:24)
+    at UserController.doAction (/Users/liam/Github/reddit/src/controllers/Controller.js:19:18)
+    at Router.dispatch (/Users/liam/Github/reddit/src/router/Router.js:79:35)
+    at App.sendResponse (/Users/liam/Github/reddit/src/App.js:43:38)
+    at Server.<anonymous> (/Users/liam/Github/reddit/server.js:91:12)
+    at processTicksAndRejections (node:internal/process/task_queues:93:5)
+[2021-5-3 6:58:19] 💌 << 400 BAD_REQUEST
+[2021-5-3 6:58:26] 📨 >> GET / ""
+[2021-5-3 6:58:26] 💌 << 200 OK
+[2021-5-3 6:58:27] 📨 >> GET /auth/login ""
+[2021-5-3 6:58:27] 💌 << 200 OK
+[2021-5-3 6:58:28] 📨 >> GET / ""
+[2021-5-3 6:58:28] 💌 << 200 OK
+[2021-5-3 6:58:29] 📨 >> GET /user/new ""
+[2021-5-3 6:58:29] UserException: Cannot create User: Missing username.
+    at Function.create (/Users/liam/Github/reddit/src/models/User.js:45:13)
+    at UserController.new (/Users/liam/Github/reddit/src/controllers/UserController.js:59:24)
+    at UserController.doAction (/Users/liam/Github/reddit/src/controllers/Controller.js:19:18)
+    at Router.dispatch (/Users/liam/Github/reddit/src/router/Router.js:79:35)
+    at App.sendResponse (/Users/liam/Github/reddit/src/App.js:43:38)
+    at Server.<anonymous> (/Users/liam/Github/reddit/server.js:91:12)
+    at processTicksAndRejections (node:internal/process/task_queues:93:5)
+[2021-5-3 6:58:29] 💌 << 400 BAD_REQUEST
+[2021-5-3 6:58:30] 📨 >> GET / ""
+[2021-5-3 6:58:30] 💌 << 200 OK
+[2021-5-3 6:58:31] 📨 >> GET /auth/login ""
+[2021-5-3 6:58:31] 💌 << 200 OK
+[2021-5-3 6:58:40] 📨 >> GET / ""
+[2021-5-3 6:58:40] 💌 << 200 OK

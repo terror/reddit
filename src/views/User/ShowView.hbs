@@ -1,0 +1,45 @@
+{{> Partials/Header }}
+
+{{#if payload.deletedAt}}
+    <p>User was deleted on {{ payload.deletedAt }}</p>
+{{else}}
+    <h1 id="username">{{ payload.username }}</h1>
+    <h2 id="email">{{ payload.email }}</h2>
+
+    {{#if payload.auth}}
+        <!-- Edit/Delete forms -->
+        {{> User/EditFormView }}
+        {{> User/DeleteFormView }}
+    {{/if}}
+
+    <div id="user-post-bookmarks-div">
+        <button id='show-user-post-bookmarks-button' value={{ payload.id }}>Show post bookmarks</button>
+    </div>
+
+    <div id="user-comment-bookmarks-div">
+        <button id='show-user-comment-bookmarks-button' value={{ payload.id }}>Show comment bookmarks</button>
+    </div>
+
+    <div id="user-post-votes-div">
+        <button id='show-user-post-votes-button' value={{ payload.id }}>Show post votes</button>
+    </div>
+
+    <div id="user-comment-votes-div">
+        <button id='show-user-comment-votes-button' value={{ payload.id }}>Show comment votes</button>
+    </div>
+
+    <div id="user-posts-div">
+        <button id='show-user-posts-button' value={{ payload.id }}>Show user posts</button>
+    </div>
+
+    <div id="user-comments-div">
+        <button id='show-user-comments-button' value={{ payload.id }}>Show user comments</button>
+    </div>
+
+    <!-- Logout button -->
+    <nav>
+        <a href={{path 'auth/logout'}}>Logout</a>
+    </nav>
+{{/if}}
+
+{{> Partials/Footer}}
