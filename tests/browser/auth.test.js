@@ -1,9 +1,9 @@
 const { chromium } = require('playwright-chromium');
 const Url = require('../../src/helpers/Url');
 const {
-	generateUser,
-	generateUserData,
-	truncateDatabase,
+  generateUser,
+  generateUserData,
+  truncateDatabase,
 } = require('./BrowserTestHelper');
 
 let browser;
@@ -14,165 +14,165 @@ let password;
 let user;
 
 beforeAll(async () => {
-	browser = await chromium.launch({
-		headless: false,
-		// slowMo: 500,
-	});
+  browser = await chromium.launch({
+    headless: false,
+    // slowMo: 500,
+  });
 });
 
 afterAll(async () => {
-	await browser.close();
+  await browser.close();
 });
 
 beforeEach(async () => {
-	({ username, email, password } = generateUserData());
-	user = await generateUser(username, email, password);
-	page = await browser.newPage();
+  ({ username, email, password } = generateUserData());
+  user = await generateUser(username, email, password);
+  page = await browser.newPage();
 });
 
 afterEach(async () => {
-	await page.close();
-	await truncateDatabase();
+  await page.close();
+  await truncateDatabase();
 });
 
 test('User logged in successfully.', async () => {
-	await page.goto(Url.base());
+  await page.goto(Url.base());
 
-	let loginLink = await page.$(`nav a[href="${Url.path('auth/login')}"]`);
-	let registerLink = await page.$(`nav a[href="${Url.path('auth/register')}"]`);
-	let logoutLink = await page.$(`nav a[href="${Url.path('auth/logout')}"]`);
+  let loginLink = await page.$(`nav a[href="${Url.path('auth/login')}"]`);
+  let registerLink = await page.$(`nav a[href="${Url.path('auth/register')}"]`);
+  let logoutLink = await page.$(`nav a[href="${Url.path('auth/logout')}"]`);
 
-	expect(loginLink).not.toBeNull();
-	expect(registerLink).not.toBeNull();
-	expect(logoutLink).toBeNull();
+  expect(loginLink).not.toBeNull();
+  expect(registerLink).not.toBeNull();
+  expect(logoutLink).toBeNull();
 
-	await page.click(`a[href="${Url.path('auth/login')}"]`);
-	await page.waitForSelector('form#login-form');
+  await page.click(`a[href="${Url.path('auth/login')}"]`);
+  await page.waitForSelector('form#login-form');
 
-	await page.fill('form#login-form input[name="email"]', email);
-	await page.fill('form#login-form input[name="password"]', password);
-	await page.click('form#login-form button');
-	await page.waitForSelector('#username');
+  await page.fill('form#login-form input[name="email"]', email);
+  await page.fill('form#login-form input[name="password"]', password);
+  await page.click('form#login-form button');
+  await page.waitForSelector('#username');
 
-	const usernameElement = await page.$('#username');
-	const emailElement = await page.$('#email');
+  const usernameElement = await page.$('#username');
+  const emailElement = await page.$('#email');
 
-	expect(await usernameElement.innerText()).toBe(user.getUsername());
-	expect(await emailElement.innerText()).toBe(user.getEmail());
+  expect(await usernameElement.innerText()).toBe(user.getUsername());
+  expect(await emailElement.innerText()).toBe(user.getEmail());
 
-	loginLink = await page.$(`nav a[href="${Url.path('auth/login')}"]`);
-	registerLink = await page.$(`nav a[href="${Url.path('auth/register')}"]`);
-	logoutLink = await page.$(`nav a[href="${Url.path('auth/logout')}"]`);
+  loginLink = await page.$(`nav a[href="${Url.path('auth/login')}"]`);
+  registerLink = await page.$(`nav a[href="${Url.path('auth/register')}"]`);
+  logoutLink = await page.$(`nav a[href="${Url.path('auth/logout')}"]`);
 
-	expect(loginLink).toBeNull();
-	expect(registerLink).toBeNull();
-	expect(logoutLink).not.toBeNull();
+  expect(loginLink).toBeNull();
+  expect(registerLink).toBeNull();
+  expect(logoutLink).not.toBeNull();
 });
 
 test('User not logged in with blank email.', async () => {
-	await page.goto(Url.base());
-	await page.click(`a[href="${Url.path('auth/login')}"]`);
-	await page.waitForSelector('form#login-form');
-	await page.fill('form#login-form input[name="password"]', password);
-	await page.click('form#login-form button');
-	await page.waitForSelector('h1');
+  await page.goto(Url.base());
+  await page.click(`a[href="${Url.path('auth/login')}"]`);
+  await page.waitForSelector('form#login-form');
+  await page.fill('form#login-form input[name="password"]', password);
+  await page.click('form#login-form button');
+  await page.waitForSelector('h1');
 
-	const h1 = await page.$('h1');
-	const body = await page.$('body');
+  const h1 = await page.$('h1');
+  const body = await page.$('body');
 
-	expect(await h1.innerText()).toMatch('Error');
-	expect(await body.innerText()).toMatch('Cannot log in: Missing email.');
+  expect(await h1.innerText()).toMatch('Error');
+  expect(await body.innerText()).toMatch('Cannot log in: Missing email.');
 });
 
 test('User not logged in with blank password.', async () => {
-	await page.goto(Url.base());
-	await page.click(`a[href="${Url.path('auth/login')}"]`);
-	await page.waitForSelector('form#login-form');
-	await page.fill('form#login-form input[name="email"]', email);
-	await page.click('form#login-form button');
-	await page.waitForSelector('h1');
+  await page.goto(Url.base());
+  await page.click(`a[href="${Url.path('auth/login')}"]`);
+  await page.waitForSelector('form#login-form');
+  await page.fill('form#login-form input[name="email"]', email);
+  await page.click('form#login-form button');
+  await page.waitForSelector('h1');
 
-	const h1 = await page.$('h1');
-	const body = await page.$('body');
+  const h1 = await page.$('h1');
+  const body = await page.$('body');
 
-	expect(await h1.innerText()).toMatch('Error');
-	expect(await body.innerText()).toMatch('Cannot log in: Missing password.');
+  expect(await h1.innerText()).toMatch('Error');
+  expect(await body.innerText()).toMatch('Cannot log in: Missing password.');
 });
 
 test('User not logged in with wrong email.', async () => {
-	await page.goto(Url.base());
-	await page.click(`a[href="${Url.path('auth/login')}"]`);
-	await page.waitForSelector('form#login-form');
-	await page.fill('form#login-form input[name="email"]', `${email}.com`);
-	await page.fill('form#login-form input[name="password"]', password);
-	await page.click('form#login-form button');
-	await page.waitForSelector('h1');
+  await page.goto(Url.base());
+  await page.click(`a[href="${Url.path('auth/login')}"]`);
+  await page.waitForSelector('form#login-form');
+  await page.fill('form#login-form input[name="email"]', `${email}.com`);
+  await page.fill('form#login-form input[name="password"]', password);
+  await page.click('form#login-form button');
+  await page.waitForSelector('h1');
 
-	const h1 = await page.$('h1');
-	const body = await page.$('body');
+  const h1 = await page.$('h1');
+  const body = await page.$('body');
 
-	expect(await h1.innerText()).toMatch('Error');
-	expect(await body.innerText()).toMatch('Cannot log in: Invalid credentials.');
+  expect(await h1.innerText()).toMatch('Error');
+  expect(await body.innerText()).toMatch('Cannot log in: Invalid credentials.');
 });
 
 test('User not logged in with wrong password.', async () => {
-	await page.goto(Url.base());
-	await page.click(`a[href="${Url.path('auth/login')}"]`);
-	await page.waitForSelector('form#login-form');
-	await page.fill('form#login-form input[name="email"]', email);
-	await page.fill('form#login-form input[name="password"]', `${password}123`);
-	await page.click('form#login-form button');
-	await page.waitForSelector('h1');
+  await page.goto(Url.base());
+  await page.click(`a[href="${Url.path('auth/login')}"]`);
+  await page.waitForSelector('form#login-form');
+  await page.fill('form#login-form input[name="email"]', email);
+  await page.fill('form#login-form input[name="password"]', `${password}123`);
+  await page.click('form#login-form button');
+  await page.waitForSelector('h1');
 
-	const h1 = await page.$('h1');
-	const body = await page.$('body');
+  const h1 = await page.$('h1');
+  const body = await page.$('body');
 
-	expect(await h1.innerText()).toMatch('Error');
-	expect(await body.innerText()).toMatch('Cannot log in: Invalid credentials.');
+  expect(await h1.innerText()).toMatch('Error');
+  expect(await body.innerText()).toMatch('Cannot log in: Invalid credentials.');
 });
 
 test('User logged out successfully.', async () => {
-	await page.goto(Url.base());
+  await page.goto(Url.base());
 
-	let loginLink = await page.$(`nav a[href="${Url.path('auth/login')}"]`);
-	let registerLink = await page.$(`nav a[href="${Url.path('auth/register')}"]`);
-	let logoutLink = await page.$(`nav a[href="${Url.path('auth/logout')}"]`);
+  let loginLink = await page.$(`nav a[href="${Url.path('auth/login')}"]`);
+  let registerLink = await page.$(`nav a[href="${Url.path('auth/register')}"]`);
+  let logoutLink = await page.$(`nav a[href="${Url.path('auth/logout')}"]`);
 
-	expect(loginLink).not.toBeNull();
-	expect(registerLink).not.toBeNull();
-	expect(logoutLink).toBeNull();
+  expect(loginLink).not.toBeNull();
+  expect(registerLink).not.toBeNull();
+  expect(logoutLink).toBeNull();
 
-	await page.click(`a[href="${Url.path('auth/login')}"]`);
-	await page.waitForSelector('form#login-form');
-	await page.fill('form#login-form input[name="email"]', email);
-	await page.fill('form#login-form input[name="password"]', password);
-	await page.click('form#login-form button');
-	await page.waitForSelector('#username');
+  await page.click(`a[href="${Url.path('auth/login')}"]`);
+  await page.waitForSelector('form#login-form');
+  await page.fill('form#login-form input[name="email"]', email);
+  await page.fill('form#login-form input[name="password"]', password);
+  await page.click('form#login-form button');
+  await page.waitForSelector('#username');
 
-	const usernameElement = await page.$('#username');
-	const emailElement = await page.$('#email');
+  const usernameElement = await page.$('#username');
+  const emailElement = await page.$('#email');
 
-	expect(await usernameElement.innerText()).toBe(user.getUsername());
-	expect(await emailElement.innerText()).toBe(user.getEmail());
+  expect(await usernameElement.innerText()).toBe(user.getUsername());
+  expect(await emailElement.innerText()).toBe(user.getEmail());
 
-	loginLink = await page.$(`nav a[href="${Url.path('auth/login')}"]`);
-	registerLink = await page.$(`nav a[href="${Url.path('auth/register')}"]`);
-	logoutLink = await page.$(`nav a[href="${Url.path('auth/logout')}"]`);
+  loginLink = await page.$(`nav a[href="${Url.path('auth/login')}"]`);
+  registerLink = await page.$(`nav a[href="${Url.path('auth/register')}"]`);
+  logoutLink = await page.$(`nav a[href="${Url.path('auth/logout')}"]`);
 
-	expect(loginLink).toBeNull();
-	expect(registerLink).toBeNull();
-	expect(logoutLink).not.toBeNull();
+  expect(loginLink).toBeNull();
+  expect(registerLink).toBeNull();
+  expect(logoutLink).not.toBeNull();
 
-	await page.click(`a[href="${Url.path('auth/logout')}"]`);
-	await page.waitForSelector('nav');
+  await page.click(`a[href="${Url.path('auth/logout')}"]`);
+  await page.waitForSelector('nav');
 
-	loginLink = await page.$(`nav a[href="${Url.path('auth/login')}"]`);
-	registerLink = await page.$(`nav a[href="${Url.path('auth/register')}"]`);
-	logoutLink = await page.$(`nav a[href="${Url.path('auth/logout')}"]`);
+  loginLink = await page.$(`nav a[href="${Url.path('auth/login')}"]`);
+  registerLink = await page.$(`nav a[href="${Url.path('auth/register')}"]`);
+  logoutLink = await page.$(`nav a[href="${Url.path('auth/logout')}"]`);
 
-	expect(loginLink).not.toBeNull();
-	expect(registerLink).not.toBeNull();
-	expect(logoutLink).toBeNull();
+  expect(loginLink).not.toBeNull();
+  expect(registerLink).not.toBeNull();
+  expect(logoutLink).toBeNull();
 });
 
 /**
@@ -183,28 +183,38 @@ test('User logged out successfully.', async () => {
  * being set in the response.
  */
 test('Username remembered successfully.', async () => {
-	await page.goto(Url.base());
-	await page.click(`a[href="${Url.path('auth/login')}"]`);
-	await page.waitForSelector('form#login-form');
+  await page.goto(Url.base());
+  await page.click(`a[href="${Url.path('auth/login')}"]`);
+  await page.waitForSelector('form#login-form');
 
-	let emailElementValue = await page.$eval('form#login-form input[name="email"]', (element) => element.value);
+  let emailElementValue = await page.$eval(
+    'form#login-form input[name="email"]',
+    (element) => element.value
+  );
 
-	expect(emailElementValue).toMatch('');
+  expect(emailElementValue).toMatch('');
 
-	await page.fill('form#login-form input[name="email"]', email);
-	await page.fill('form#login-form input[name="password"]', password);
-	await page.check('form#login-form input[name="remember"][type="checkbox"]');
-	await page.click('form#login-form button');
-	await page.waitForSelector('nav');
+  await page.fill('form#login-form input[name="email"]', email);
+  await page.fill('form#login-form input[name="password"]', password);
+  await page.check('form#login-form input[name="remember"][type="checkbox"]');
+  await page.click('form#login-form button');
+  await page.waitForSelector('nav');
 
-	await page.click(`a[href="${Url.path('auth/logout')}"]`);
-	await page.waitForSelector('nav');
+  await page.click(`a[href="${Url.path('auth/logout')}"]`);
+  await page.waitForSelector('nav');
 
-	await page.click(`a[href="${Url.path('auth/login')}"]`);
-	await page.waitForSelector('nav');
+  await page.click(`a[href="${Url.path('auth/login')}"]`);
+  await page.waitForSelector('nav');
 
-	emailElementValue = await page.$eval('form#login-form input[name="email"]', (element) => element.value);
+  emailElementValue = await page.$eval(
+    'form#login-form input[name="email"]',
+    (element) => element.value
+  );
 
-	expect(emailElementValue).toMatch(email); // Textbox should have the email pre-populated.
-	expect(await page.isChecked('form#login-form input[name="remember"][type="checkbox"]')).toBeTruthy(); // The checkbox should already be checked.
+  expect(emailElementValue).toMatch(email); // Textbox should have the email pre-populated.
+  expect(
+    await page.isChecked(
+      'form#login-form input[name="remember"][type="checkbox"]'
+    )
+  ).toBeTruthy(); // The checkbox should already be checked.
 });

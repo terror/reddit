@@ -9,13 +9,13 @@ const logger = require('../helpers/Logger');
  * time we throw an error in every other class.
  */
 class Exception extends Error {
-	constructor(message, exception, statusCode = HttpStatusCode.BAD_REQUEST) {
-		super(message);
-		Error.captureStackTrace(this, exception);
-		this.name = exception.name;
-		this.statusCode = statusCode;
-		logger.error(this);
-	}
+  constructor(message, exception, statusCode = HttpStatusCode.BAD_REQUEST) {
+    super(message);
+    Error.captureStackTrace(this, exception);
+    this.name = exception.name;
+    this.statusCode = statusCode;
+    logger.error(this);
+  }
 }
 
 module.exports = Exception;

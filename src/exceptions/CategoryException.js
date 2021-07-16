@@ -5,9 +5,9 @@ const Exception = require('./Exception');
  * passes it up to the parent Exception class.
  */
 class CategoryException extends Exception {
-	constructor(message, statusCode) {
-		super(message, CategoryException, statusCode);
-	}
+  constructor(message, statusCode) {
+    super(message, CategoryException, statusCode);
+  }
 }
 
 module.exports = CategoryException;

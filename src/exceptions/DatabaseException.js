@@ -8,15 +8,15 @@ const Exception = require('./Exception');
  * please look at the truncate method in src/database/Database.js
  */
 class DatabaseException extends Exception {
-	constructor(error) {
-		const message = error.message.replace('Error: ', 'DatabaseException: ');
-		const stack = error.stack.replace('Error: ', 'DatabaseException: ');
+  constructor(error) {
+    const message = error.message.replace('Error: ', 'DatabaseException: ');
+    const stack = error.stack.replace('Error: ', 'DatabaseException: ');
 
-		super(message, DatabaseException);
+    super(message, DatabaseException);
 
-		this.message = message;
-		this.stack = stack;
-	}
+    this.message = message;
+    this.stack = stack;
+  }
 }
 
 module.exports = DatabaseException;
